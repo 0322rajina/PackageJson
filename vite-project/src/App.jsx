@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import MyUI from "./pages/MyUI";
+import NameInput from "./pages/NameInput";
+import Son from "./pages/Son";
+import Daughter from "./pages/Daughter";
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
 
-export default App
+const App =() => {
+  // const name ="techspire";
+  // return <NameInput></NameInput>;  
+  
+    // <div style={{backgroundColor:"red"}}> // it returns two node(two div) but app must return only one div  or node 
+    //   <p>{name}</p>    //dynamic concept             
+    //   <p>I am react</p>
+    // </div>
+    // <>
+    // <p>{name}</p>
+    // <p>I am a react</p> 
+    // </>
+    
+    // const[jagga, setJagga] = useState("Durbar marg"); //useState = hook
+    // return <Son property={jagga} changeJagga={setJagga}/>  
+    //<Daughter property={jagga}  changeproperty={setJagga}/>
+        //</> 
+    const[products,setProduct]=useState([
+      { id: 1, name: "Laptop", price: 1200 },
+      { id: 2, name: "Smartphone", price: 800 },
+      { id: 3, name: "Headphones", price: 150 }
+    ])
+      return (
+        <>
+          {products.map((item) => (
+            <div key={item.id}>item name is {item.name}</div>
+          ))}
+        </>
+      );
+};
+export default App;
